@@ -2,8 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-// use App\Controllers\Http\Controller;
-
 use App\Http\Controllers\ReleaseController;
 
 /*
@@ -21,4 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/lancamento/novo',[ReleaseController::class,'add'])->name('lancamento.add');
+Route::get('/lancamento/novo',[ReleaseController::class,'create'])->name('lancamento.create');
+Route::post('/lancamento',[ReleaseController::class,'createAction'])->name('lancamento.createAction');
+
+Route::get('/lancamentos',[ReleaseController::class,'list'])->name('lancamentos.list');
+
+
+

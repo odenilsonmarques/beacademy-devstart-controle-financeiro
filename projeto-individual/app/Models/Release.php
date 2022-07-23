@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Release extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'release_type',
+        'person',
+        'description',
+        'amount',
+        'due_date'
+    ];
+
 }
