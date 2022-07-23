@@ -44,3 +44,6 @@ h1{
     font-weight: bold;
 }
 
+tr.despesas{
+    color:#DC143C;
+}
