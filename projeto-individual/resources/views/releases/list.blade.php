@@ -2,11 +2,24 @@
 @section('title','lancamentos')
 @section('content')
     <div class="container">
-        <div class="row mt-4">
+        <div class="row mt-5">
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <form action="{{route('lancamentos.list')}}" method="GET">
+                        <div class="input-group mb-3">
+                            <input type="search" name="search" class="form-control">
+                            <div class="input-group-append">
+                              <button type="submit" class="btn btn-outline-secondary">BUSCAR</button>
+                            </div>
+                          </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-lg-12">
                 <div class="table-responsive">
-                    <table class="table table-striped table-hover table caption-top">
-                        <caption>LISTA DE LANCAMENTO</caption>
+                    <table class="table table-striped table-hover">
                         <thead class="table-dark">
                             <tr>
                                 <th>LANÇAMENTO</th>
@@ -44,6 +57,9 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <div class="justify-content-center pagination">
+                        {{$releases->links('pagination::bootstrap-4')}}
+                    </div>
                 </div>
             </div>
         </div>

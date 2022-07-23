@@ -47,3 +47,8 @@ h1{
 tr.despesas{
     color:#DC143C;
 }
+
+.btn-outline-secondary
+{
+    font-size:15px;
+}
