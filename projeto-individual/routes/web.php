@@ -26,6 +26,9 @@ Route::get('/releases',[ReleaseController::class,'list'])->name('releases.list')
 
 Route::get('/release/{id}',[ReleaseController::class,'destroy'])->name('release.destroy');
 
+Route::get('/release/{id}/edit',[ReleaseController::class,'edit'])->name('release.edit');
+Route::put('/release/{id}',[ReleaseController::class,'editAction'])->name('release.editAction');
+
 
 
 

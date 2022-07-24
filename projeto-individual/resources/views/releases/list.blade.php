@@ -38,7 +38,7 @@
                                         <td>{{$release->amount}}</td>
                                         <td>{{date('d/m/Y',strtotime($release->due_date))}}</td>
                                         <td>
-                                            <a href="" class="btn btn-dark btn-sm">Editar</a>
+                                            <a href="{{route('release.edit',[$release->id])}}" class="btn btn-dark btn-sm">Editar</a>
                                             <a href="{{route('release.destroy', [$release->id])}}" class="btn btn-danger btn-sm">excluir</a>
                                         </td>
                                     </tr>
@@ -49,7 +49,7 @@
                                         <td>{{$release->amount}}</td>
                                         <td>{{date('d/m/Y',strtotime($release->due_date))}}</td>
                                         <td>
-                                            <a href="" class="btn btn-dark btn-sm">Editar</a>
+                                            <a href="{{route('release.edit',[$release->id])}}" class="btn btn-dark btn-sm">Editar</a>
                                             <a href="{{route('release.destroy', [$release->id])}}" class="btn btn-danger btn-sm">excluir</a>
                                         </td>
                                     </tr>
