@@ -32,6 +32,6 @@ class ReleaseController extends Controller
     {
         $data = $request->all();
         Release::create($data);
-        return redirect()->route('lancamentos.list');
+        return redirect()->route('releases.list');
     }
 }

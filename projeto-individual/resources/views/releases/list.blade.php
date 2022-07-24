@@ -5,7 +5,7 @@
         <div class="row mt-5">
             <div class="col-lg-6">
                 <div class="input-group">
-                    <form action="{{route('lancamentos.list')}}" method="GET">
+                    <form action="{{route('releases.list')}}" method="GET">
                         <div class="input-group mb-3">
                             <input type="search" name="search" class="form-control">
                             <div class="input-group-append">

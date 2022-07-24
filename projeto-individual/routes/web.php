@@ -19,10 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/lancamento/novo',[ReleaseController::class,'create'])->name('lancamento.create');
-Route::post('/lancamento',[ReleaseController::class,'createAction'])->name('lancamento.createAction');
+Route::get('/release/create',[ReleaseController::class,'create'])->name('release.create');
+Route::post('/release',[ReleaseController::class,'createAction'])->name('release.createAction');
 
-Route::get('/lancamentos',[ReleaseController::class,'list'])->name('lancamentos.list');
+Route::get('/releases',[ReleaseController::class,'list'])->name('releases.list');
 
 
 
