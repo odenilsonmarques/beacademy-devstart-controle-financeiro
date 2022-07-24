@@ -38,6 +38,6 @@ class ReleaseController extends Controller
     public function destroy($id)
     {
         Release::find($id)->delete();
-        return redirect()->route('lancamentos.list');
+        return redirect()->route('releases.list');
     }
 }

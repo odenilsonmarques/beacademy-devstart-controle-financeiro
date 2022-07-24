@@ -4,7 +4,7 @@
 @section('content')
     <div class="container">
         <h1 class="text-center mt-4">CADASTRO DE LANÇAMENTO</h1>
-        <form action="{{route('lancamento.createAction')}}" method="POST">
+        <form action="{{route('release.createAction')}}" method="POST">
             @csrf<!--csrf toquem de segurnça padrao do laravel para envio de requisao-->
             <div class="row mt-4">
                 <div class="col-sm-6 offset-md-3">
