@@ -24,5 +24,7 @@ Route::post('/lancamento',[ReleaseController::class,'createAction'])->name('lanc
 
 Route::get('/lancamentos',[ReleaseController::class,'list'])->name('lancamentos.list');
 
+Route::get('/excluir/{id}',[ReleaseController::class,'destroy'])->name('excluir.destroy');
+
 
 
