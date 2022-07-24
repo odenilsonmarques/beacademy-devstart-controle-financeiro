@@ -22,10 +22,10 @@
                             <a class="nav-link" href="#">INÍCIO</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('lancamentos.list')}}">LANÇAMENTOS</a>
+                            <a class="nav-link" href="{{route('releases.list')}}">LANÇAMENTOS</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('lancamento.create')}}">NOVO LANÇAMENTO</a>
+                            <a class="nav-link" href="{{route('release.create')}}">NOVO LANÇAMENTO</a>
                         </li>
                     </ul>
                 </nav>
