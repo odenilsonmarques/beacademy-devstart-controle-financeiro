@@ -34,4 +34,10 @@ class ReleaseController extends Controller
         Release::create($data);
         return redirect()->route('lancamentos.list');
     }
+
+    public function destroy($id)
+    {
+        Release::find($id)->delete();
+        return redirect()->route('lancamentos.list');
+    }
 }
