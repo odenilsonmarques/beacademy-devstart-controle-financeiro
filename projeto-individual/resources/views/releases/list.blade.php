@@ -39,7 +39,7 @@
                                         <td>{{date('d/m/Y',strtotime($release->due_date))}}</td>
                                         <td>
                                             <a href="" class="btn btn-dark btn-sm">Editar</a>
-                                            <a href="" class="btn btn-danger btn-sm">excluir</a>
+                                            <a href="{{route('excluir.destroy', [$release->id])}}" class="btn btn-danger btn-sm">excluir</a>
                                         </td>
                                     </tr>
                                 @else
@@ -50,7 +50,7 @@
                                         <td>{{date('d/m/Y',strtotime($release->due_date))}}</td>
                                         <td>
                                             <a href="" class="btn btn-dark btn-sm">Editar</a>
-                                            <a href="" class="btn btn-danger btn-sm">excluir</a>
+                                            <a href="{{route('excluir.destroy', [$release->id])}}" class="btn btn-danger btn-sm">excluir</a>
                                         </td>
                                     </tr>
                                 @endif
