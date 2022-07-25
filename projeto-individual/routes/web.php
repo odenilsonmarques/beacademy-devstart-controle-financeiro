@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ReleaseController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +16,11 @@ use App\Http\Controllers\ReleaseController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/',[DashboardController::class,'home'])->name('home');
 
 Route::get('/release/create',[ReleaseController::class,'create'])->name('release.create');
 Route::post('/release',[ReleaseController::class,'createAction'])->name('release.createAction');
