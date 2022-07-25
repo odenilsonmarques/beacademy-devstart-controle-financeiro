@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Release;
 use Illuminate\Http\Request;
+use App\Models\Release;
+use App\Http\Requests\StorageReleaseRequest;
 
 class ReleaseController extends Controller
 {
@@ -11,6 +11,20 @@ class ReleaseController extends Controller
     public function __construct(Release $release)
     {
         $this->model = $release;
+    }
+
+    public function create()
+    {
+        return view('releases.add');
+    }
+    public function createAction(StorageReleaseRequest $request)//esse request é o mesmo que Request = new request
+    {
+        $data = $request->all();
+        Release::create($data);
+        return redirect()->route('releases.list')
+
+        ->with('messageRegister', 'Lancamento cadastrado com sucesso!');
+
     }
 
     public function list(Request $request)//passando o Request por causa do formulario de busca que foi implementado na list de releases
@@ -23,16 +37,7 @@ class ReleaseController extends Controller
         return view('releases.list', compact('releases'));
     }
 
-    public function create()
-    {
-        return view('releases.add');
-    }
-    public function createAction(Request $request)//esse request é o mesmo que Request = new request
-    {
-        $data = $request->all();
-        Release::create($data);
-        return redirect()->route('releases.list');
-    }
+    
 
     public function edit($id)
     {
@@ -45,7 +50,7 @@ class ReleaseController extends Controller
         }
             return view('releases.edit',compact('data','typeReleases'));
     }
-    public function editAction(Request $request, $id)
+    public function editAction(StorageReleaseRequest $request, $id)
     {
         $data = Release::find($id);
         if(!$data)
@@ -54,13 +59,17 @@ class ReleaseController extends Controller
         }
             $release = $request->all();
             $data -> update($release);
-            return redirect()->route('releases.list');
+            return redirect()->route('releases.list')
+
+            ->with('messageEdit', 'Lancamento alterado com sucesso!');
     }
     
     public function destroy($id)
     {
         Release::find($id)->delete();
-        return redirect()->route('releases.list');
+        return redirect()->route('releases.list')
+
+        ->with('messageDelete', 'Lancamento excluído com sucesso!');
     }
 
 }
