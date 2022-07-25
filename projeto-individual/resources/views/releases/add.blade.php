@@ -4,12 +4,27 @@
 @section('content')
     <div class="container">
         <h1 class="text-center mt-4">CADASTRO DE LANÇAMENTO</h1>
+            <div class="row">
+                <div class="col-sm-6 offset-md-3">
+                    @if($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>
+                                        {{$error}}<br/>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                </div>
+            </div>
         <form action="{{route('release.createAction')}}" method="POST">
             @csrf<!--csrf toquem de segurnça padrao do laravel para envio de requisao-->
             <div class="row mt-4">
                 <div class="col-sm-6 offset-md-3">
                     <label for="release_type">Tipo de Lançamento</label>
-                    <select name="release_type" id="" class="form-select" required autofocus>
+                    <select name="release_type" id="release_type" class="form-select" autofocus>
                         <option value="">----Selecione----</option>
                         <option value="DESPESA">DESPESA</option>
                         <option value="RECEITA">RECEITA</option>
@@ -18,26 +33,26 @@
             </div>
             <div class="row">
                 <div class="col-sm-6 offset-md-3 mt-3">
-                    <label for="release_type">Pessoa</label>
-                    <input type="text" name="person" class="form-control"  maxlength="30" required>
+                    <label for="person">Pessoa</label>
+                    <input type="text" name="person" value="{{old('person')}}" class="form-control"  maxlength="30">
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-6 offset-md-3 mt-3">
-                    <label for="release_type">Valor</label>
-                    <input type="text" name="amount" class="form-control" onKeyPress="return(currencyFormat(this,'','.',event))"  placeholder="R$" required>
+                    <label for="amount">Valor</label>
+                    <input type="text" name="amount" value="{{old('amount')}}" class="form-control" onKeyPress="return(currencyFormat(this,'','.',event))"  placeholder="R$" >
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-6 offset-md-3 mt-3">
-                    <label for="release_type">Data</label>
-                    <input type="date" name="due_date" class="form-control" required>
+                    <label for="due_date">Data</label>
+                    <input type="date" name="due_date" value="{{old('due_date')}}" class="form-control" >
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-6 offset-md-3 mt-3">
-                    <label for="release_type">Descrição</label>
-                    <input type="text" name="description" class="form-control"  maxlegth="30" required>
+                    <label for="description">Descrição</label>
+                    <input type="text" name="description" value="{{old('description')}}" class="form-control"  maxlegth="30" >
                 </div>
             </div>
             <div class="row">
