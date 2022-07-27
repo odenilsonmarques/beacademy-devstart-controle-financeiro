@@ -17,7 +17,9 @@ class DashboardController extends Controller
 
         $allExpenses = Release::where('release_type', '=', 'DESPESA')->sum('amount');
 
-        $teste = $allRevenues - $allExpenses;
+        
+
+        
     
         return view('welcome',[
             'allRecords' => $allRecords,
