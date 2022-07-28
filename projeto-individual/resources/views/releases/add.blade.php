@@ -23,7 +23,7 @@
             @csrf<!--csrf toquem de segurnça padrao do laravel para envio de requisao-->
             <div class="row mt-4">
                 <div class="col-sm-6 offset-md-3">
-                    <label for="release_type">Tipo de Lançamento</label>
+                    <label for="release_type">TIPO DE LANÇAMENTO</label>
                     <select name="release_type" id="release_type" class="form-select" autofocus>
                         <option value="">----Selecione----</option>
                         <option value="DESPESA">DESPESA</option>
@@ -33,26 +33,26 @@
             </div>
             <div class="row">
                 <div class="col-sm-6 offset-md-3 mt-3">
-                    <label for="person">Pessoa</label>
-                    <input type="text" name="person" value="{{old('person')}}" class="form-control"  maxlength="30">
+                    <label for="person">PESSOA</label>
+                    <input type="text" name="person" value="{{old('person')}}" class="form-control"  maxlength="30" placeholder="Digite o Nome">
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-6 offset-md-3 mt-3">
-                    <label for="amount">Valor</label>
-                    <input type="text" name="amount" value="{{old('amount')}}" class="form-control" onKeyPress="return(currencyFormat(this,'','.',event))"  placeholder="R$" >
+                    <label for="amount">VALOR</label>
+                    <input type="number" name="amount" id="amount" step="0.01" value="{{old('amount')}}" class="form-control" onKeyPress="return(currencyFormat(this,'','.',event))"  placeholder="R$" >
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-6 offset-md-3 mt-3">
-                    <label for="due_date">Data</label>
+                    <label for="due_date">DATA</label>
                     <input type="date" name="due_date" value="{{old('due_date')}}" class="form-control" >
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-6 offset-md-3 mt-3">
-                    <label for="description">Descrição</label>
-                    <input type="text" name="description" value="{{old('description')}}" class="form-control"  maxlegth="30" >
+                    <label for="description">DESCRIÇÃO</label>
+                    <input type="text" name="description" value="{{old('description')}}" class="form-control"  maxlegth="30" placeholder="Digite a descrição">
                 </div>
             </div>
             <div class="row">

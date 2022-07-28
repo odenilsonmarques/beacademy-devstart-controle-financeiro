@@ -17,17 +17,19 @@ class DashboardController extends Controller
 
         $allExpenses = Release::where('release_type', '=', 'DESPESA')->sum('amount');
 
-        
+        $releases = Release::all();
 
-        
-    
         return view('welcome',[
             'allRecords' => $allRecords,
             'allRevenues' => $allRevenues,
             'allExpenses' => $allExpenses,
+            'releases' => $releases,
            
         ]);
     }
+
+    
+    
 
     // public function record()
     // {

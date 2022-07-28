@@ -70,3 +70,13 @@ tr.despesas{
     font-size:18px;
     /* font-weight: bold; */
 }
+
+tr.text
+{
+    text-align:center;
+    color: #FFFFFF;
+}
+tr.textResult
+{
+    text-align:center;
+}

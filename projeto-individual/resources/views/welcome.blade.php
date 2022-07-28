@@ -1,5 +1,5 @@
 @extends('layouts.template')
-@section('title','cadastro')
+@section('title','dashboard')
 
 @section('content')
     <div class="container">
@@ -22,7 +22,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-sm-3 text-center">
               <div class="card text-white bg-success mb-3" style="max-width: 540px;">
                   <div class="row g-0">
@@ -40,8 +39,6 @@
                   </div>
               </div>
             </div>
-
-
             <div class="col-sm-3 text-center">
               <div class="card text-white  bg-danger mb-3" style="max-width: 540px;">
                   <div class="row g-0">
@@ -59,7 +56,6 @@
                   </div>
               </div>
             </div>
-
             <div class="col-sm-3 text-center">
               <div class="card text-white bg-primary mb-3" style="max-width: 540px;">
                   <div class="row g-0">
@@ -71,12 +67,37 @@
                     <div class="col-md-8">
                       <div class="card-body">
                         <h5 class="card-title">SALDO</h5>
-                        <h5 class="number">{{$allRevenues - $allExpenses}}</h5>
+                        <h5 class="number">{{number_format($allRevenues - $allExpenses,2,",","." )}}</h5>
                       </div>
                     </div>
                   </div>
               </div>
             </div>
+        </div>
+
+        <div class="row">
+          <div class="table-responsive mt-4">
+            <table class="table table-borderless">
+                <thead class="table bg-secondary">
+                    <tr class="text">
+                        <th>LANÇAMENTO</th>
+                        <th>PESSOA</th>
+                        <th>VALOR</th>
+                        <th>DATA DO LANÇAMENTO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($releases as $release)
+                        <tr class="textResult">
+                            <td>{{$release->release_type}}</td>
+                            <td>{{$release->person}}</td>
+                            <td>{{$release->amount}}</td>
+                            <td>{{date('d/m/Y',strtotime($release->due_date))}}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+          </div>
         </div>
     </div>
 @endsection
