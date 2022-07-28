@@ -31,4 +31,8 @@ class Release extends Model
         return $releases;
     }
 
+    public function setPersonAttribute($value)
+    {
+        $this->attributes['person'] = strtoupper($value);
+    }
 }

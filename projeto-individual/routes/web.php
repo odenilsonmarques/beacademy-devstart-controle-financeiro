@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ReleaseController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +16,17 @@ use App\Http\Controllers\ReleaseController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/',[DashboardController::class,'home'])->name('home');
+// Route::get('/',[DashboardController::class,'record'])->name('home');
+// Route::get('/',[DashboardController::class,'revenue'])->name('home');
+// Route::get('/',[DashboardController::class,'expense'])->name('home');
+
+// Route::get('/releasesDashboard',[ReleaseController::class,'list'])->name('releasesDashboard.list');
+
 
 Route::get('/release/create',[ReleaseController::class,'create'])->name('release.create');
 Route::post('/release',[ReleaseController::class,'createAction'])->name('release.createAction');
@@ -28,6 +37,7 @@ Route::get('/release/{id}',[ReleaseController::class,'destroy'])->name('release.
 
 Route::get('/release/{id}/edit',[ReleaseController::class,'edit'])->name('release.edit');
 Route::put('/release/{id}',[ReleaseController::class,'editAction'])->name('release.editAction');
+
 
 
 

@@ -52,3 +52,31 @@ tr.despesas{
 {
     font-size:15px;
 }
+
+.card-body .card-title
+{
+    
+    font-weight: bold;
+}
+
+.card-body .number
+{
+    font-size:35px;
+    font-weight: bold;
+}
+
+.card-body p
+{
+    font-size:18px;
+    /* font-weight: bold; */
+}
+
+tr.text
+{
+    text-align:center;
+    color: #FFFFFF;
+}
+tr.textResult
+{
+    text-align:center;
+}
