@@ -36,9 +36,14 @@
     <article>
         @yield('content')
     </article>
-
     <footer>
-
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-sm-12 text-center">
+                    &copy 2022 by odenilson marques.
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
