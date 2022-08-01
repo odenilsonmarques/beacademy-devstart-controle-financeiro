@@ -80,3 +80,10 @@ tr.textResult
 {
     text-align:center;
 }
+
+.navbar a, x-responsive-nav-link
+{
+    font-size: 16px;
+    margin-top: 12px;
+    font-weight: bold; 
+}
