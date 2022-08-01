@@ -27,8 +27,14 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('release.create')}}">NOVO LANÇAMENTO</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link">{{ Auth::user()->name }}</a>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ Auth::user()->name }}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                <li><a class="dropdown-item" href="#">{{ Auth::user()->email }}</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <form method="POST" action="{{ route('logout') }}">
@@ -37,7 +43,6 @@
                                     onclick="event.preventDefault();
                                     this.closest('form').submit();">
                                     {{ __('SAIR') }}
-                           
                                 </x-responsive-nav-link>
                             </form>
                         </li>
