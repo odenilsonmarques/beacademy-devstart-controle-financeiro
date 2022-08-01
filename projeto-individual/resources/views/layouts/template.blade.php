@@ -27,6 +27,20 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('release.create')}}">NOVO LANÇAMENTO</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link">{{ Auth::user()->name }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                                <x-responsive-nav-link class="nav-link" :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                                    {{ __('SAIR') }}
+                           
+                                </x-responsive-nav-link>
+                            </form>
+                        </li>
                     </ul>
                 </nav>
             </div>
