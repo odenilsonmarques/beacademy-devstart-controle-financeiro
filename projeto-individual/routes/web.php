@@ -21,12 +21,6 @@ use App\Http\Controllers\DashboardController;
 // });
 
 Route::get('/',[DashboardController::class,'home'])->name('home');
-// Route::get('/',[DashboardController::class,'record'])->name('home');
-// Route::get('/',[DashboardController::class,'revenue'])->name('home');
-// Route::get('/',[DashboardController::class,'expense'])->name('home');
-
-// Route::get('/releasesDashboard',[ReleaseController::class,'list'])->name('releasesDashboard.list');
-
 
 Route::get('/release/create',[ReleaseController::class,'create'])->name('release.create');
 Route::post('/release',[ReleaseController::class,'createAction'])->name('release.createAction');
