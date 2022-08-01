@@ -27,9 +27,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('release.create')}}">NOVO LANÇAMENTO</a>
                         </li>
-                        {{-- <li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link">{{ Auth::user()->name }}</a>
-                        </li> --}}
+                        </li>
                         <li class="nav-item">
                             <form method="POST" action="{{ route('logout') }}">
                             @csrf
