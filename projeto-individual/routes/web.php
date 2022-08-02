@@ -37,5 +37,10 @@ Route::put('/release/{id}',[ReleaseController::class,'editAction'])->name('relea
 
 Route::get('/user',[UserController::class,'display'])->name('user.display')->middleware('auth');
 
+Route::fallback(function () {
+    return view('notFound.404');
+
+});
+
 
 require __DIR__.'/auth.php';

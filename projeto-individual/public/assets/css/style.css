@@ -73,17 +73,17 @@ tr.despesas{
 
 tr.text
 {
-    text-align:center;
+    /* text-align:center; */
     color: #FFFFFF;
 }
 tr.lineRed
 {
-    text-align:center;
+    /* text-align:center; */
     color: #DC143C;
 }
 tr.lineDark
 {
-    text-align:center;
+    /* text-align:center; */
     color: #111;
 }
 
