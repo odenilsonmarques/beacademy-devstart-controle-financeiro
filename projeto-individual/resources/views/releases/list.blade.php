@@ -49,8 +49,8 @@
                         </thead>
                         <tbody>
                             @foreach($releases as $release)
-                                @if($release->release_type === 'DESPESA')
-                                    <tr class="despesas">
+                                @if($release->release_type == 'DESPESA')
+                                    <tr class="lineRed">
                                         <td>{{$release->release_type}}</td>
                                         <td>{{$release->person}}</td>
                                         <td>{{$release->amount}}</td>
@@ -61,7 +61,7 @@
                                         </td>
                                     </tr>
                                 @else
-                                    <tr>
+                                    <tr class="lineDark">
                                         <td>{{$release->release_type}}</td>
                                         <td>{{$release->person}}</td>
                                         <td>{{$release->amount}}</td>

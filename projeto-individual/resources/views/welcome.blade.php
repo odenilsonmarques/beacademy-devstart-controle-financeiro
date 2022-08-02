@@ -76,29 +76,46 @@
         </div>
 
         <div class="row">
-          <div class="table-responsive mt-4">
-            <table class="table table-borderless">
-                <thead class="table bg-secondary">
-                    <tr class="text">
-                        <th>LANÇAMENTO</th>
-                        <th>PESSOA</th>
-                        <th>VALOR</th>
-                        <th>DATA DO LANÇAMENTO</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($releases as $release)
-                        <tr class="textResult">
-                            <td>{{$release->release_type}}</td>
-                            <td>{{$release->person}}</td>
-                            <td>{{$release->amount}}</td>
-                            <td>{{date('d/m/Y',strtotime($release->due_date))}}</td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
+          
+            <div class="table-responsive mt-4">
+              <table class="table table-borderless dashboard">
+                  <thead class="table bg-secondary">
+                      <tr class="text">
+                          <th>LANÇAMENTO</th>
+                          <th>PESSOA</th>
+                          <th>VALOR</th>
+                          <th>DATA DO LANÇAMENTO</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                     
+                        @foreach($releases as $release)
+                          @if($release->release_type == 'DESPESA')
+                            <tr class="lineRed">
+                                <td>{{$release->release_type}}</td>
+                                <td>{{$release->person}}</td>
+                                <td>{{$release->amount}}</td>
+                                <td>{{date('d/m/Y',strtotime($release->due_date))}}</td>
+                            </tr>
+                          @else
+                            <tr class="lineDark">
+                              <td>{{$release->release_type}}</td>
+                              <td>{{$release->person}}</td>
+                              <td>{{$release->amount}}</td>
+                              <td>{{date('d/m/Y',strtotime($release->due_date))}}</td>
+                            </tr>
+                          @endif
+                        @endforeach
+                      
+                    
+                  </tbody>
+              </table>
+              <div class="justify-content-center pagination">
+                {{$releases->links('pagination::bootstrap-4')}}
+            </div>
+            </div>
           </div>
-        </div>
+      
     </div>
 @endsection
 
