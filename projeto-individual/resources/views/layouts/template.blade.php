@@ -33,9 +33,13 @@
                                 {{ Auth::user()->name }}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                <li><a class="dropdown-item" href="#">{{ Auth::user()->email }}</a></li>
+                                {{-- <li><a class="dropdown-item" href="#">{{ Auth::user()->email }}</a></li> --}}
+                                <li><a class="dropdown-item" href="{{route('user.display')}}">Perfil</a></li>
                             </ul>
                         </li>
+
+
+
                         <li class="nav-item">
                             <form method="POST" action="{{ route('logout') }}">
                             @csrf

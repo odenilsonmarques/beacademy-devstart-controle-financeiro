@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ReleaseController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,8 @@ Route::get('/release/{id}',[ReleaseController::class,'destroy'])->name('release.
 
 Route::get('/release/{id}/edit',[ReleaseController::class,'edit'])->name('release.edit')->middleware('auth');
 Route::put('/release/{id}',[ReleaseController::class,'editAction'])->name('release.editAction')->middleware('auth');
+
+Route::get('/user',[UserController::class,'display'])->name('user.display')->middleware('auth');
 
 
 require __DIR__.'/auth.php';
