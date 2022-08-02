@@ -61,7 +61,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-6 offset-md-3 mt-4">
-                    <button class="btn btn-danger"><a href="#">CANCELAR </a></button>
+                    <button class="btn btn-danger"><a href="{{route('releases.list')}}">CANCELAR </a></button>
                     <button type="submit" class="btn btn-success">SALVAR</button>
                 </div>
             </div>

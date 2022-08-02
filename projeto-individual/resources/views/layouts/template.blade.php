@@ -12,7 +12,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-dark" style="background-color:#111111">
             <div class="container">
-                <a class="navbar-brand" href="#">FINANCEIRO</a>
+                <a class="navbar-brand" href="{{route('home')}}">FINANCEIRO</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
