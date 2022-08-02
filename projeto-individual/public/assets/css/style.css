@@ -76,9 +76,15 @@ tr.text
     text-align:center;
     color: #FFFFFF;
 }
-tr.textResult
+tr.lineRed
 {
     text-align:center;
+    color: #DC143C;
+}
+tr.lineDark
+{
+    text-align:center;
+    color: #111;
 }
 
 .navbar a, x-responsive-nav-link
@@ -87,3 +93,4 @@ tr.textResult
     margin-top: 12px;
     font-weight: bold; 
 }
+
