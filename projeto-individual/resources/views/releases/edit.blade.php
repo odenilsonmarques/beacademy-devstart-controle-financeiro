@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="container">
-        <h1 class="text-center mt-4">EDIÇÃO DE LANÇAMENTO</h1>
+        <h1 class="text-center mt-4">Atualização de Lançamento</h1>
         <div class="row">
             <div class="col-sm-6 offset-md-3">
                 @if($errors->any())

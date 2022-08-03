@@ -9,7 +9,7 @@
                         <div class="input-group mb-3">
                             <input type="search" name="search" class="form-control">
                             <div class="input-group-append">
-                              <button type="submit" class="btn btn-outline-secondary">BUSCAR</button>
+                              <button type="submit" class="btn btn-outline-secondary">Buscar</button>
                             </div>
                           </div>
                     </form>
@@ -40,11 +40,11 @@
                     <table class="table table-striped table-hover">
                         <thead class="table-dark">
                             <tr>
-                                <th>LANÇAMENTO</th>
-                                <th>PESSOA</th>
-                                <th>VALOR</th>
-                                <th>DATA DO LANÇAMENTO</th>
-                                <th>AÇÕES</th>
+                                <th>Lançamento</th>
+                                <th>Pessoa</th>
+                                <th>Valor</th>
+                                <th>Data do Lançamento</th>
+                                <th>Ações</th>
                             </tr>
                         </thead>
                         <tbody>

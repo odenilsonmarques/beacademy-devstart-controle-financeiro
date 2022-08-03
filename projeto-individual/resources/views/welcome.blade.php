@@ -15,7 +15,7 @@
                       </div>
                       <div class="col-md-8">
                         <div class="card-body">
-                          <p class="card-title text-center">LANCAMENTOS</p>
+                          <p class="card-title text-center">Lancamentos</p>
                           <h5 class="number">{{$allRecords}}</h5>
                         </div>
                       </div>
@@ -32,7 +32,7 @@
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">
-                        <h5 class="card-title">RECEITAS</h5>
+                        <h5 class="card-title">Receitas</h5>
                         <h5 class="number">{{number_format("$allRevenues",2,",",".")}}</h5>
                       </div>
                     </div>
@@ -49,7 +49,7 @@
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">
-                        <h5 class="card-title">DESPESAS</h5>
+                        <h5 class="card-title">Despesas</h5>
                         <h5 class="number">{{number_format("$allExpenses",2,",",".")}}</h5>
                       </div>
                     </div>
@@ -66,7 +66,7 @@
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">
-                        <h5 class="card-title">SALDO</h5>
+                        <h5 class="card-title">Saldo</h5>
                         <h5 class="number">{{number_format($allRevenues - $allExpenses,2,",","." )}}</h5>
                       </div>
                     </div>
@@ -81,10 +81,10 @@
               <table class="table table-borderless dashboard">
                   <thead class="table bg-secondary">
                       <tr class="text">
-                          <th>LANÇAMENTO</th>
-                          <th>PESSOA</th>
-                          <th>VALOR</th>
-                          <th>DATA DO LANÇAMENTO</th>
+                          <th>Lançamento</th>
+                          <th>Pessoa</th>
+                          <th>Valor</th>
+                          <th>Data do Lançamento</th>
                       </tr>
                   </thead>
                   <tbody>
