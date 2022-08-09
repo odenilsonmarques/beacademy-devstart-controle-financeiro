@@ -14,4 +14,9 @@ class UserController extends Controller
 
         return view('users.display',compact('inforUsers'));
     }
+
+    public function admin()
+    {
+        return view ('admin.index');
+    }
 }

@@ -27,6 +27,11 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('releases.list')}}">Lançamentos</a>
                             </li>
+                            @if(Auth::user()->is_admin == 1)
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('admin')}}">Administrador</a>
+                                </li>
+                            @endif
 
                             <li class="nav-item">
                                 <a class="nav-link" href="#">{{Auth::user()->name }}</a>

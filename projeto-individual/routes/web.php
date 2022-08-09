@@ -44,7 +44,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/posts',[PostController::class,'list'])->name('posts.list')->middleware('auth');//exibe todos os post e seu usuario
 
     Route::get('/user/{id}/posts',[PostController::class,'show'])->name('posts.show')->middleware('auth');//exibe os post de um determinado usuario
+});
 
+//rota para perfil admintrador
+Route::middleware(['auth','admin'])->group(function(){
+    Route::get('/admin',[UserController::class,'admin'])->name('admin');
 });
 
 Route::fallback(function () {
