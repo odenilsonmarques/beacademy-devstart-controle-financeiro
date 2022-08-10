@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class DashboardController extends Controller
 {
     //
-    public function home()
+    public function dash()
     {
 
         $allRecords = Release::count();
@@ -20,13 +20,18 @@ class DashboardController extends Controller
         // $releases = Release::all();
         $releases = Release::paginate(4);
 
-        return view('welcome',[
+        return view('dashboard.dashboard',[
             'allRecords' => $allRecords,
             'allRevenues' => $allRevenues,
             'allExpenses' => $allExpenses,
             'releases' => $releases,
            
         ]);
+    }
+
+    public function home()
+    {
+        return view('welcome');
     }
 
     

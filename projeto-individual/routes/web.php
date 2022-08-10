@@ -23,7 +23,9 @@ use App\Http\Controllers\UserController;
 // });
 
 
-Route::get('/',[DashboardController::class,'home'])->name('home')->middleware('auth');
+Route::get('/',[DashboardController::class,'home'])->name('home');
+
+Route::get('/dashboard',[DashboardController::class,'dash'])->name('dash')->middleware('auth');
 
 Route::get('/release/create',[ReleaseController::class,'create'])->name('release.create')->middleware('auth');
 Route::post('/release',[ReleaseController::class,'createAction'])->name('release.createAction')->middleware('auth');
@@ -38,7 +40,7 @@ Route::put('/release/{id}',[ReleaseController::class,'editAction'])->name('relea
 Route::get('/user',[UserController::class,'display'])->name('user.display')->middleware('auth');
 
 Route::fallback(function () {
-    return view('notFound.404');
+    return view('notFound.404')->middleware('auth');
 
 });
 

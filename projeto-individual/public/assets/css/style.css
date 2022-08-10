@@ -5,18 +5,19 @@ body
 }
 .navbar a, .navbar-brand
 {
+    /* font-size: 30px;
+    margin-top: 20px; */
 
-    font-size: 19px;
-    margin-top: 12px;
 }
 .navbar a.navbar-brand 
 {
-    color: #FFFFFF;
+    color:  #6c63ff;
     font-weight: bold;   
+    font-size: 18px;
 }
 .navbar a.navbar-brand:hover
 {
-    color: #8E05C2;
+    color: #6c63ff;
 }
 .navbar-expand-sm .navbar-nav > li > a {
     font-size: 16px;
@@ -24,10 +25,10 @@ body
     font-weight: bold;   
 }
 .navbar-expand-sm .navbar-nav .nav-link{
-    color: #FFFFFF;
+    color:  #6c63ff;
 }
 .navbar-expand-sm .navbar-nav .nav-link:hover{
-    color: #8E05C2;
+    color: #6c63ff;
     text-decoration: underline;
 }
 .dropdown-menu .dropdown-item{
@@ -94,3 +95,37 @@ tr.lineDark
     font-weight: bold; 
 }
 
+.container.hero 
+{
+    animation: fadeInLeft 2s;
+}
+.textHero h1 
+{
+    font-size:37px;
+    color: #6c63ff;
+    font-weight: bold;
+    text-shadow: 1px 1px;
+}
+
+span
+{
+    color: #6c63ff;
+    font-weight: bold;
+}
+
+/* css padão para aplicação do efeito de transação */
+@keyframes fadeInLeft
+{
+    0%{
+        opacity:0;
+        /* translateX reposiciona um elemento na direção horizontal e/ou vertical */
+        -webkit-transform:translateX(-100px); 
+        -ms-transform:translateX(-100px);
+        transform:translateX(-100px)}
+    100%{
+        opacity:1;
+        -webkit-transform:translateX(0);
+        -ms-transform:translateX(0);
+        transform:translateX(0)
+    }
+}
