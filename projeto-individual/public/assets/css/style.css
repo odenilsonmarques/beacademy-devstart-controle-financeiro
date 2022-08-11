@@ -49,6 +49,11 @@ tr.despesas{
     color:#DC143C;
 }
 
+table th
+{
+    color:#FFF;
+}
+
 .btn-outline-secondary
 {
     font-size:15px;

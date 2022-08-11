@@ -8,7 +8,7 @@
             </div>
             <div class="table-responsive mt-3">
                 <table class="table table-striped table-hover">
-                    <thead class="table-dark">
+                    <thead class="table" style="background-color:#6c63ff;" >
                         <tr>
                             <th>NOME</th>
                             <th>EMAIL</th>

@@ -6,7 +6,7 @@
         {{-- <h1 class="text-center mt-4">CADASTRO DE LANÇAMENTO</h1> --}}
         <div class="row  mt-5">
             <div class="col-sm-3 text-center">
-                <div class="card text-white bg-secondary mb-3" style="max-width: 540px;">
+                <div class="card text-white mb-3" style="max-width: 540px; background-color:#6c63ff;">
                     <div class="row g-0">
                       <div class="col-md-4">
                         <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-graph-up-arrow mt-4" viewBox="0 0 16 16">
@@ -57,7 +57,7 @@
               </div>
             </div>
             <div class="col-sm-3 text-center">
-              <div class="card text-white bg-primary mb-3" style="max-width: 540px;">
+              <div class="card text-white bg-dark mb-3" style="max-width: 540px;">
                   <div class="row g-0">
                     <div class="col-md-4">
                       <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-currency-dollar mt-4" viewBox="0 0 16 16">
@@ -76,10 +76,9 @@
         </div>
 
         <div class="row">
-          
             <div class="table-responsive mt-4">
               <table class="table table-borderless dashboard">
-                  <thead class="table bg-secondary">
+                  <thead class="table" style="background-color:#6c63ff;" >
                       <tr class="text">
                           <th>Lançamento</th>
                           <th>Pessoa</th>
