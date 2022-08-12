@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Release;
+use App\Models\User;
 use App\Http\Requests\StorageReleaseRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ReleaseController extends Controller
 {
@@ -14,27 +16,48 @@ class ReleaseController extends Controller
     }
 
     public function create()
-    {
+    {   
         return view('releases.add');
     }
     public function createAction(StorageReleaseRequest $request)//esse request é o mesmo que Request = new request
     {
-        $data = $request->all();
-        Release::create($data);
-        return redirect()->route('releases.list')
+        // $id_empresa = Auth::user()->id;
+        // dd($request->all());
+        // $data = $request->all()->Auth::user()->id;
+        // Release::create($data);
 
+        //foi utilizado essa forma de salvar  dados devido a necessidade de pegar o id do usuario logado, poreḿ deve existir outras maneiras
+        $user = Auth::user()->id;
+        $release = new Release;
+        $release->release_type = $request->release_type;
+        $release->person = $request->person;
+        $release->description = $request->description;
+        $release->amount = $request->amount;
+        $release->due_date = $request->due_date;
+        $release->user_id = $user;
+
+        $release->save();
+        return redirect()->route('releases.list')
         ->with('messageRegister', 'Lancamento cadastrado com sucesso!');
 
+        
     }
 
     public function list(Request $request)//passando o Request por causa do formulario de busca que foi implementado na list de releases
     {
-        // dd($request->all());
-        // $releases = Release::paginate(5);
-        $releases = $this->model->getReleases(//chamando a funcaoa declarada no model release para realisar filtragem
-            $request->search ?? '' //caso encontre um valor será exibido, se não vai aparecer nenhum valor
-        );
-        return view('releases.list', compact('releases'));
+
+        
+        
+            // dd($request->all());
+            // $releases = Release::paginate(5);
+            // $releases = Auth()->user()->releases();
+            // $releases = Release::where('id', Auth::id())->get();
+            $releases = $this->model->getReleases(//chamando a funcaoa declarada no model release para realisar filtragem
+                $request->search ?? '' //caso encontre um valor será exibido, se não vai aparecer nenhum valor
+            );
+            return view('releases.list', compact('releases'));
+        
+       
     }
 
     

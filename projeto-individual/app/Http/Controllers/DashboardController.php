@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Release;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class DashboardController extends Controller
 {
@@ -11,14 +13,19 @@ class DashboardController extends Controller
     public function dash()
     {
 
-        $allRecords = Release::count();
+        
+        $allRecords = Auth::user()->releases()->count();
+        
+        $allRevenues = Auth::user()->releases()->where('release_type', '=', 'RECEITA')->sum('amount');
 
-        $allRevenues = Release::where('release_type', '=', 'RECEITA')->sum('amount');
-
-        $allExpenses = Release::where('release_type', '=', 'DESPESA')->sum('amount');
+        $allExpenses = Auth::user()->releases()->where('release_type', '=', 'DESPESA')->sum('amount');
 
         // $releases = Release::all();
-        $releases = Release::paginate(4);
+       
+        $releases = Release::where('user_id', Auth::id())->get();
+        $releases = Release::where('user_id', Auth::id())->paginate(4);
+        
+        
 
         return view('dashboard.dashboard',[
             'allRecords' => $allRecords,

@@ -55,6 +55,7 @@
                     <input type="text" name="description" value="{{old('description')}}" class="form-control"  maxlegth="30" placeholder="Digite a descrição">
                 </div>
             </div>
+            
             <div class="row">
                 <div class="col-sm-6 offset-md-3 mt-4">
                     <button class="btn btn-danger"><a href="{{route('home')}}">CANCELAR </a></button>

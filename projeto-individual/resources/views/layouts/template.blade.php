@@ -13,7 +13,7 @@
         <nav class="navbar navbar-expand-sm navbar-dark" style="background-color:#111111">
             <div class="container">
                 <a class="navbar-brand" href="{{route('home')}}">
-                    <img src="{{'assets/img/dollar.png'}}" alt="logo"  width="28" height="28" class="d-inline-block align-text-center mb-2">
+                    <img src="{{asset('assets/img/dollar.png')}}" alt="logo"  width="28" height="28" class="d-inline-block align-text-center mb-2">
                     Financeiro
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">

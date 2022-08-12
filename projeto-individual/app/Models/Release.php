@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class Release extends Model
 {
@@ -14,10 +14,11 @@ class Release extends Model
         'person',
         'description',
         'amount',
-        'due_date'
+        'due_date',
+        'user_id',
     ];
 
-    //Nessa função foi implementada na model devido ser uma das boa pratica, porem deve-se ter outra forma
+    //essa função foi implementada na model devido ser uma das boa pratica, porem deve-se ter outra forma
     //Nesse caso, passou-se o paramentro search, caso seja passado algo no campo de busca é atribuido um  valor a variavel query que recebe o valor de search, caso não é passado null e não mostra nada
     public function getReleases(string $search = null)
     {
@@ -35,4 +36,11 @@ class Release extends Model
     {
         $this->attributes['person'] = strtoupper($value);
     }
+
+    //metodo para relacionar um ou mais lancamentos com um usuario
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }
