@@ -50,7 +50,7 @@
                     {{ __('Ja tem conta?') }}
                 </a>
 
-                <x-button class="ml-4">
+                <x-button class="ml-4" style="background-color:#6c63ff;font-weight: bold; ">
                     {{ __('Registrar') }}
                 </x-button>
             </div>

@@ -9,7 +9,7 @@
                         <div class="input-group mb-3">
                             <input type="search" name="search" class="form-control">
                             <div class="input-group-append">
-                              <button type="submit" class="btn btn-outline-secondary">Buscar</button>
+                              <button type="submit" class="btn btn-outline-secondary" style="background-color:#6c63ff;color:#fff" >Buscar</button>
                             </div>
                           </div>
                     </form>
@@ -38,7 +38,7 @@
                 @endif
                 <div class="table-responsive">
                     <table class="table table-striped table-hover">
-                        <thead class="table-dark">
+                        <thead class="table" style="background-color:#6c63ff;" >
                             <tr>
                                 <th>Lançamento</th>
                                 <th>Pessoa</th>

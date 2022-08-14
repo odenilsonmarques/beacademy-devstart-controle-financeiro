@@ -23,7 +23,9 @@ use App\Http\Controllers\UserController;
 // });
 
 
-Route::get('/',[DashboardController::class,'home'])->name('home')->middleware('auth');
+Route::get('/',[DashboardController::class,'home'])->name('home');
+
+Route::get('/dashboard',[DashboardController::class,'dash'])->name('dash')->middleware('auth');
 
 Route::get('/release/create',[ReleaseController::class,'create'])->name('release.create')->middleware('auth');
 Route::post('/release',[ReleaseController::class,'createAction'])->name('release.createAction')->middleware('auth');
