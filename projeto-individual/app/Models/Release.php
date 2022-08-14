@@ -4,6 +4,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
 
 class Release extends Model
 {
@@ -27,9 +29,12 @@ class Release extends Model
                 $query->where('release_type', $search);
                 $query->orWhere('person', 'LIKE', "%{$search}%");
             }
-        })
+        });
+        $releases = Release::where('user_id', Auth::id())
         ->paginate(5);
         return $releases;
+
+        
     }
 
     public function setPersonAttribute($value)
