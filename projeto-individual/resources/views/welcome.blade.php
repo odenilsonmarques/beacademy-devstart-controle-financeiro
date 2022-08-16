@@ -1,5 +1,5 @@
 @extends('layouts.template')
-@section('title','Pagina inicial')
+@section('title','Controle financeiro')
 
 @section('content')
     <div class="container-fluid">
@@ -15,7 +15,6 @@
         </div>
       </div>
     </div>
-
     <div class="container">
       <div class="row mt-5">
         <h3 class="text-center mb-5">Controle seus ganhos e gastos</h3>

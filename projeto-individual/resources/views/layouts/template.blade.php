@@ -9,8 +9,8 @@
     <title>@yield('title')</title>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-dark" style="background-color:#111111">
+    <header class="mb-5">
+        <nav class="navbar fixed-top navbar-expand-sm navbar-dark" style="background-color:#111111">
             <div class="container">
                 <a class="navbar-brand" href="{{route('home')}}">
                     <img src="{{asset('assets/img/dollar.png')}}" alt="logo"  width="28" height="28" class="d-inline-block align-text-center mb-2">

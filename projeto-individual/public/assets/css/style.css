@@ -145,3 +145,8 @@ span
     background-color: #6c63ff;
 }
 
+.card-header
+{
+    background-color: #6c63ff;
+    color: #fff;
+}
