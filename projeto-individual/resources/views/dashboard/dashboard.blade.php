@@ -4,8 +4,8 @@
 @section('content')
     <div class="container">
         {{-- <h1 class="text-center mt-4">CADASTRO DE LANÇAMENTO</h1> --}}
-        <div class="row  mt-5">
-            <div class="col-sm-3 text-center">
+        <div class="row">
+            <div class="col-sm-3 text-center mt-5">
                 <div class="card text-white mb-3" style="max-width: 540px; background-color:#6c63ff;">
                     <div class="row g-0">
                       <div class="col-md-4">
@@ -22,7 +22,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3 text-center">
+            <div class="col-sm-3 text-center mt-5">
               <div class="card text-white bg-success mb-3" style="max-width: 540px;">
                   <div class="row g-0">
                     <div class="col-md-4">
@@ -39,7 +39,7 @@
                   </div>
               </div>
             </div>
-            <div class="col-sm-3 text-center">
+            <div class="col-sm-3 text-center mt-5">
               <div class="card text-white  bg-danger mb-3" style="max-width: 540px;">
                   <div class="row g-0">
                     <div class="col-md-4">
@@ -56,7 +56,7 @@
                   </div>
               </div>
             </div>
-            <div class="col-sm-3 text-center">
+            <div class="col-sm-3 text-center mt-5">
               <div class="card text-white bg-dark mb-3" style="max-width: 540px;">
                   <div class="row g-0">
                     <div class="col-md-4">

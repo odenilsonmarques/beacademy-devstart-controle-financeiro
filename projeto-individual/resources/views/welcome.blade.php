@@ -1,13 +1,13 @@
 @extends('layouts.template')
-@section('title','Pagina inicial')
+@section('title','Controle financeiro')
 
 @section('content')
     <div class="container-fluid">
       <div class="container hero ">
         <div class="row">
           <div class="col-sm-6 text-center textHero  mt-5">
-            <h1 class="text-center mt-5">Controle de Receitas e Despesas Pessoais</h1>
-            <p class="text-center mt-5">Sistema de controle financeiro pessoal</p>
+            <h1 class="mt-5">Controle de Receitas e Despesas Pessoais</h1>
+            <p class="mt-3">Sistema de controle financeiro pessoal</p>
           </div>
           <div class="col-sm-6 text-center mt-3">
             <img src="{{('assets/img/mulher.png')}}" alt="" width="40%" height="340px">
@@ -15,7 +15,6 @@
         </div>
       </div>
     </div>
-
     <div class="container">
       <div class="row mt-5">
         <h3 class="text-center mb-5">Controle seus ganhos e gastos</h3>

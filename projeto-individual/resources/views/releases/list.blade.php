@@ -2,8 +2,8 @@
 @section('title','lancamentos')
 @section('content')
     <div class="container">
-        <div class="row mt-5">
-            <div class="col-lg-6">
+        <div class="row ">
+            <div class="col-lg-6 mt-5">
                 <div class="input-group">
                     <form action="{{route('releases.list')}}" method="GET">
                         <div class="input-group mb-3">

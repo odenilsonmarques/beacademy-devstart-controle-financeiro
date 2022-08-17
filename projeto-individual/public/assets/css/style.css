@@ -103,18 +103,21 @@ tr.lineDark
 .container.hero 
 {
     animation: fadeInLeft 2s;
+    
 }
 .textHero h1 
 {
-    font-size:37px;
+    font-size:40px;
     color: #ffffff;
     font-weight: bold;
     text-shadow: 1px 1px;
+    text-align: left;
 }
 .textHero p {
     color: #ffffff;
     font-weight: bold;
     font-size: 18px;
+    text-align: left;
 }
 
 span
@@ -145,3 +148,14 @@ span
     background-color: #6c63ff;
 }
 
+.card-header
+{
+    background-color: #6c63ff;
+    color: #fff;
+}
+
+.navbar-nav .nav-link {
+    /* padding-right: 0.7rem; */
+    margin-left: 15px;
+    
+}

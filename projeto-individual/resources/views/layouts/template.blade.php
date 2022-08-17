@@ -9,8 +9,8 @@
     <title>@yield('title')</title>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-dark" style="background-color:#111111">
+    <header class="mb-5">
+        <nav class="navbar fixed-top navbar-expand-sm navbar-dark" style="background-color:#1A1A40">
             <div class="container">
                 <a class="navbar-brand" href="{{route('home')}}">
                     <img src="{{asset('assets/img/dollar.png')}}" alt="logo"  width="28" height="28" class="d-inline-block align-text-center mb-2">
@@ -21,11 +21,12 @@
                 </button>
                 <nav class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('home')}}">Início</a>
-                        </li>
+                       
 
                         @if(Auth::user())
+                             <li class="nav-item">
+                                <a class="nav-link" href="{{route('home')}}">Início</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('dash')}}">Dashboard</a>
                             </li>
