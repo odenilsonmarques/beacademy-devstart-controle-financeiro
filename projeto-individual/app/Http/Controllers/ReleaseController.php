@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 
 class ReleaseController extends Controller
 {
+    private $totalPage = 5;//definindo a quantidade de itens por pagina
+
     //funcao para chamar o model,onde será incluida alguma regras de negócio
     public function __construct(Release $release)
     {
@@ -43,24 +45,30 @@ class ReleaseController extends Controller
         
     }
 
-    public function list(Request $request)//passando o Request por causa do formulario de busca que foi implementado na list de releases
-    {
 
-        
-        
-            // dd($request->all());
-            // $releases = Release::paginate(5);
-            // $releases = Auth()->user()->releases();
-            // $releases = Release::where('id', Auth::id())->get();
-            $releases = $this->model->getReleases(//chamando a funcaoa declarada no model release para realisar filtragem
-                $request->search ?? '' //caso encontre um valor será exibido, se não vai aparecer nenhum valor
-            );
-            return view('releases.list', compact('releases'));
-        
-       
+
+    public function list(Release $release)//passando o Request por causa do formulario de busca que foi implementado na list de releases
+    {
+        $releases = auth()->user()->releases()->paginate($this->totalPage);//filtrando apenas os registro do usuario logado
+        return view('releases.list', compact('releases'));
     }
 
-    
+
+    public function filter(Request $request, Release $release)//pegando o objetto do metood list
+    {
+        // $dataForm = $request->all();
+        $dataForm = $request->except('_token');
+
+        $releases = $release->search($dataForm,$this->totalPage);
+
+        return view('releases.list', compact('releases', 'dataForm'));
+    }
+
+
+
+
+
+
 
     public function edit($id)
     {
@@ -94,5 +102,7 @@ class ReleaseController extends Controller
 
         ->with('messageDelete', 'Lancamento excluído com sucesso!');
     }
+
+
 
 }

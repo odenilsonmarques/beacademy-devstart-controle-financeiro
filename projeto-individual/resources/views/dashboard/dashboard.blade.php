@@ -93,7 +93,7 @@
                             <tr class="lineRed">
                                 <td>{{$release->release_type}}</td>
                                 <td>{{$release->person}}</td>
-                                <td>{{$release->amount}}</td>
+                                <td>{{number_format($release->amount, 2, ',', '.')}}</td>
                                 <td>{{date('d/m/Y',strtotime($release->due_date))}}</td>
                             </tr>
                           @else

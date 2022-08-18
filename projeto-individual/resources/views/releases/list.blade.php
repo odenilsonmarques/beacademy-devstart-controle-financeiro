@@ -5,9 +5,10 @@
         <div class="row ">
             <div class="col-lg-6 mt-5">
                 <div class="input-group">
-                    <form action="{{route('releases.list')}}" method="GET">
+                    <form action="{{route('search.filter')}}" method="POST">
+                        @csrf
                         <div class="input-group mb-3">
-                            <input type="search" name="search" class="form-control">
+                            <input type="text" name="release_type" class="form-control">
                             <div class="input-group-append">
                               <button type="submit" class="btn btn-outline-secondary" style="background-color:#6c63ff;color:#fff" >Buscar</button>
                             </div>
@@ -53,7 +54,7 @@
                                     <tr class="lineRed">
                                         <td>{{$release->release_type}}</td>
                                         <td>{{$release->person}}</td>
-                                        <td>{{$release->amount}}</td>
+                                        <td>{{number_format($release->amount, 2, ',', '.')}}</td>
                                         <td>{{date('d/m/Y',strtotime($release->due_date))}}</td>
                                         <td>
                                             <a href="{{route('release.edit',[$release->id])}}" class="btn btn-dark btn-sm">Editar</a>
@@ -76,7 +77,12 @@
                         </tbody>
                     </table>
                     <div class="justify-content-center pagination">
-                        {{$releases->links('pagination::bootstrap-4')}}
+                        {{-- {{$releases->links('pagination::bootstrap-4')}} --}}
+                        @if (isset($dataForm))
+                            {!! $releases->appends($dataForm)->links('pagination::bootstrap-4') !!}
+                        @else
+                            {!! $releases->links('pagination::bootstrap-4') !!}
+                        @endif
                     </div>
                 </div>
             </div>
