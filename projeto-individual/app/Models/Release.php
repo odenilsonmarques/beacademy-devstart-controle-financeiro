@@ -32,18 +32,28 @@ class Release extends Model
         return $this->belongsTo(User::class);
     }
 
-    //essa função foi implementada na model devido ser uma das boa pratica, porem deve-se ter outra forma
     //Nesse caso, passou-se o paramentro search, caso seja passado algo no campo de busca é atribuido um  valor a variavel query que recebe o valor de search, caso não é passado null e não mostra nada
     public function search(Array $search, $totalPage)
     {
-        
+        //atribuindo o valor da busca a variavel releases
         $releases = $this->where(function ($query) use ($search) {
-            if(isset($search['release_type']))
-                $query->where('release_type', $search['release_type']);
-                // $query ->orWhere('person', 'LIKE', "%{$search}%");
+        if(isset($search['release_type'])){
+            $query->where('release_type', $search['release_type']);
+        }
+
+        if(isset($search['person'])){
+            $query->where('person', $search['person']);
+            // $query ->orWhere('person', 'LIKE', "%{$search}%");
+        }
+
+        if(isset($search['due_date'])){
+            $query->where('due_date', $search['due_date']);
+            // $query ->orWhere('person', 'LIKE', "%{$search}%");
+        }
+                
             
         })
-        
+        ->where('user_id', Auth()->user()->id)
         ->paginate($totalPage);
         return $releases;
     }
