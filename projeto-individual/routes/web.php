@@ -30,7 +30,9 @@ Route::get('/dashboard',[DashboardController::class,'dash'])->name('dash')->midd
 Route::get('/release/create',[ReleaseController::class,'create'])->name('release.create')->middleware('auth');
 Route::post('/release',[ReleaseController::class,'createAction'])->name('release.createAction')->middleware('auth');
 
+Route::any('/search',[ReleaseController::class,'filter'])->name('search.filter')->middleware('auth');
 Route::get('/releases',[ReleaseController::class,'list'])->name('releases.list')->middleware('auth');
+
 
 Route::get('/release/{id}',[ReleaseController::class,'destroy'])->name('release.destroy')->middleware('auth');
 
@@ -38,6 +40,8 @@ Route::get('/release/{id}/edit',[ReleaseController::class,'edit'])->name('releas
 Route::put('/release/{id}',[ReleaseController::class,'editAction'])->name('release.editAction')->middleware('auth');
 
 Route::get('/user',[UserController::class,'display'])->name('user.display')->middleware('auth');
+
+
 
 Route::fallback(function () {
     return view('notFound.404');

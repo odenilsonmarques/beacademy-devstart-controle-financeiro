@@ -2,16 +2,23 @@
 @section('title','lancamentos')
 @section('content')
     <div class="container">
-        <div class="row ">
-            <div class="col-lg-6 mt-5">
+        <div class="row">
+            <div class="col-lg-8 mt-5">
                 <div class="input-group">
-                    <form action="{{route('releases.list')}}" method="GET">
+                    <form action="{{route('search.filter')}}" method="POST" class="form-horizontal">
+                        @csrf
                         <div class="input-group mb-3">
-                            <input type="search" name="search" class="form-control">
-                            <div class="input-group-append">
+                            <select name="release_type" id="release_type" class="form-select  inputSearch">
+                                <option value="">--- Selecione ---</option>
+                                <option value="DESPESA">DESPESA</option>
+                                <option value="RECEITA">RECEITA</option>
+                            </select>
+                            <input type="text" name="person" class="form-control inputSearch" placeholder="Pessoa">
+                            <input type="date" name="due_date" class="form-control inputSearch">
+                            <div class="input-group-append ml-3">
                               <button type="submit" class="btn btn-outline-secondary" style="background-color:#6c63ff;color:#fff" >Buscar</button>
                             </div>
-                          </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -53,7 +60,7 @@
                                     <tr class="lineRed">
                                         <td>{{$release->release_type}}</td>
                                         <td>{{$release->person}}</td>
-                                        <td>{{$release->amount}}</td>
+                                        <td>{{number_format($release->amount, 2, ',', '.')}}</td>
                                         <td>{{date('d/m/Y',strtotime($release->due_date))}}</td>
                                         <td>
                                             <a href="{{route('release.edit',[$release->id])}}" class="btn btn-dark btn-sm">Editar</a>
@@ -76,7 +83,12 @@
                         </tbody>
                     </table>
                     <div class="justify-content-center pagination">
-                        {{$releases->links('pagination::bootstrap-4')}}
+                        {{-- {{$releases->links('pagination::bootstrap-4')}} --}}
+                        @if (isset($dataForm))
+                            {!! $releases->appends($dataForm)->links('pagination::bootstrap-4') !!}
+                        @else
+                            {!! $releases->links('pagination::bootstrap-4') !!}
+                        @endif
                     </div>
                 </div>
             </div>

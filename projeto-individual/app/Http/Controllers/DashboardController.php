@@ -22,7 +22,7 @@ class DashboardController extends Controller
 
         // $releases = Release::all();
        
-        $releases = Release::where('user_id', Auth::id())->get();
+        // $releases = Release::where('user_id', Auth::id())->get();
         $releases = Release::where('user_id', Auth::id())->paginate(4);
         
         
