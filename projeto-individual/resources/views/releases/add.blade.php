@@ -47,7 +47,7 @@
                             <div class="row">
                                 <div class="col-sm-12 mt-3">
                                     <label for="amount">Valor</label>
-                                    <input type="number" name="amount" id="amount" step="0.01" value="{{old('amount')}}" class="form-control" onKeyPress="return(currencyFormat(this,'','.',event))"  placeholder="R$" >
+                                    <input type="text" name="amount" id="amount" value="{{old('amount')}}" class="form-control" onkeyup="formatCoin();" placeholder="R$" >
                                 </div>
                             </div>
                             <div class="row">

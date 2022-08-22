@@ -81,5 +81,6 @@
     </footer>
     <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('assets/js/scriptFormatCoin.js')}}"></script>
+    {{-- <script src="{{asset('assets/js/teste.js')}}"></script> --}}
 </body>
 </html>

@@ -57,7 +57,7 @@
               </div>
             </div>
             <div class="col-sm-3 text-center mt-5">
-              <div class="card text-white bg-dark mb-3" style="max-width: 540px;">
+              <div class="card text-white mb-3" style="max-width: 540px; background-color:#1A1A40">
                   <div class="row g-0">
                     <div class="col-md-4">
                       <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-currency-dollar mt-4" viewBox="0 0 16 16">
@@ -93,20 +93,18 @@
                             <tr class="lineRed">
                                 <td>{{$release->release_type}}</td>
                                 <td>{{$release->person}}</td>
-                                <td>{{number_format($release->amount, 2, ',', '.')}}</td>
+                                <td>R$ {{number_format($release->amount, 2, ',', '.')}}</td>
                                 <td>{{date('d/m/Y',strtotime($release->due_date))}}</td>
                             </tr>
                           @else
                             <tr class="lineDark">
                               <td>{{$release->release_type}}</td>
                               <td>{{$release->person}}</td>
-                              <td>{{$release->amount}}</td>
+                              <td>R$ {{number_format($release->amount, 2, ',', '.')}}</td>
                               <td>{{date('d/m/Y',strtotime($release->due_date))}}</td>
                             </tr>
                           @endif
                         @endforeach
-                      
-                    
                   </tbody>
               </table>
               <div class="justify-content-center pagination">

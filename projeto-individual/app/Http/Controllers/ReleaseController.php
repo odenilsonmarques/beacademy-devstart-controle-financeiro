@@ -34,6 +34,7 @@ class ReleaseController extends Controller
         $release->release_type = $request->release_type;
         $release->person = $request->person;
         $release->description = $request->description;
+        // $release->amount = str_replace(['.',','],['','.'],$request->amount);
         $release->amount = $request->amount;
         $release->due_date = $request->due_date;
         $release->user_id = $user;
@@ -41,11 +42,7 @@ class ReleaseController extends Controller
         $release->save();
         return redirect()->route('releases.list')
         ->with('messageRegister', 'Lancamento cadastrado com sucesso!');
-
-        
     }
-
-
 
     public function list(Release $release)//passando o Request por causa do formulario de busca que foi implementado na list de releases
     {
@@ -83,12 +80,16 @@ class ReleaseController extends Controller
     }
     public function editAction(StorageReleaseRequest $request, $id)
     {
+        
         $data = Release::find($id);
+        
         if(!$data)
         {
             return redirect()->route('releases.list');
         }
+            
             $release = $request->all();
+            
             $data -> update($release);
             return redirect()->route('releases.list')
 
