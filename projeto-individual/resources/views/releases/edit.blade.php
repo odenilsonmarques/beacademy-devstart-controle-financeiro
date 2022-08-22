@@ -36,26 +36,26 @@
             </div>
             <div class="row">
                 <div class="col-sm-6 offset-md-3 mt-3">
-                    <label for="release_type">Pessoa</label>
-                    <input type="text" name="person" value="{{$data->person}}" class="form-control"  maxlength="30" >
+                    <label for="person">Pessoa</label>
+                    <input type="text" name="person" id="person" value="{{$data->person}}" class="form-control"  maxlength="30" >
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-6 offset-md-3 mt-3">
-                    <label for="release_type">Valor</label>
-                    <input type="text" name="amount" value="{{$data->amount}}" class="form-control" onKeyPress="return(currencyFormat(this,'','.',event))"  placeholder="R$" >
+                    <label for="amount">Valor</label>
+                    <input type="text" name="amount" id="amount" value="{{$data->amount}}" class="form-control" onkeyup="formatCoin();"  placeholder="R$" >
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-6 offset-md-3 mt-3">
-                    <label for="release_type">Data</label>
-                    <input type="date" name="due_date" value="{{$data->due_date}}" class="form-control" >
+                    <label for="due_date">Data</label>
+                    <input type="date" name="due_date" id="due_date" value="{{$data->due_date}}" class="form-control" >
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-6 offset-md-3 mt-3">
-                    <label for="release_type">Descrição</label>
-                    <input type="text" name="description" value="{{$data->release_type}}" class="form-control"  maxlegth="30" >
+                    <label for="description">Descrição</label>
+                    <input type="text" name="description" id="description" value="{{$data->release_type}}" class="form-control"  maxlegth="30" >
                 </div>
             </div>
             <div class="row">

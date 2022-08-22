@@ -20,17 +20,27 @@ class Release extends Model
         'due_date',
         'user_id',
     ];
-
-    public function setPersonAttribute($value)
-    {
-        $this->attributes['person'] = strtoupper($value);
-    }
-
     //metodo para relacionar um ou mais lancamentos com um usuario
     public function user()
     {
         return $this->belongsTo(User::class);
     }
+
+    //utilizando o recurso mutators para especificar os padrões que desejo inserir na banco de dados
+    //utilizei o nome das variaveis igual aos campo, mas poderia ser outro nome
+    public function setPersonAttribute($person)
+    {
+        $this->attributes['person'] = strtoupper($person);
+    }
+    public function setDescriptionAttribute($description)
+    {
+        $this->attributes['description'] = strtoupper($description);
+    }
+    public function setAmountAttribute($amount)
+    {
+        $this->attributes['amount'] = str_replace(['.',','],['','.'],$amount);
+    }
+
 
     //Nesse caso, passou-se o paramentro search, caso seja passado algo no campo de busca é atribuido um  valor a variavel query que recebe o valor de search, caso não é passado null e não mostra nada
     public function search(Array $search, $totalPage)
@@ -50,8 +60,6 @@ class Release extends Model
             $query->where('due_date', $search['due_date']);
             // $query ->orWhere('person', 'LIKE', "%{$search}%");
         }
-                
-            
         })
         ->where('user_id', Auth()->user()->id)
         ->paginate($totalPage);

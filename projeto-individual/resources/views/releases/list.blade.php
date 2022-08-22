@@ -60,7 +60,7 @@
                                     <tr class="lineRed">
                                         <td>{{$release->release_type}}</td>
                                         <td>{{$release->person}}</td>
-                                        <td>{{number_format($release->amount, 2, ',', '.')}}</td>
+                                        <td>R$ {{number_format($release->amount, 2, ',', '.')}}</td>
                                         <td>{{date('d/m/Y',strtotime($release->due_date))}}</td>
                                         <td>
                                             <a href="{{route('release.edit',[$release->id])}}" class="btn btn-dark btn-sm">Editar</a>
@@ -71,7 +71,7 @@
                                     <tr class="lineDark">
                                         <td>{{$release->release_type}}</td>
                                         <td>{{$release->person}}</td>
-                                        <td>{{$release->amount}}</td>
+                                        <td>R$ {{number_format($release->amount, 2, ',', '.')}}</td>
                                         <td>{{date('d/m/Y',strtotime($release->due_date))}}</td>
                                         <td>
                                             <a href="{{route('release.edit',[$release->id])}}" class="btn btn-dark btn-sm">Editar</a>
