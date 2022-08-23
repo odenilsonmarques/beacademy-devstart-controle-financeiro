@@ -9,32 +9,23 @@ use Illuminate\Support\Facades\Auth;
 
 class ReleaseController extends Controller
 {
-    private $totalPage = 5;//definindo a quantidade de itens por pagina
+    //definindo a quantidade de itens por pagina
+    private $totalPage = 5;
 
-    //funcao para chamar o model,onde será incluida alguma regras de negócio
-    public function __construct(Release $release)
-    {
-        $this->model = $release;
-    }
-
+    //metodo para chamar a view
     public function create()
     {   
         return view('releases.add');
     }
+
     public function createAction(StorageReleaseRequest $request)//esse request é o mesmo que Request = new request
     {
-        // $id_empresa = Auth::user()->id;
-        // dd($request->all());
-        // $data = $request->all()->Auth::user()->id;
-        // Release::create($data);
-
-        //foi utilizado essa forma de salvar  dados devido a necessidade de pegar o id do usuario logado, poreḿ deve existir outras maneiras
+        //foi utilizado essa forma de salvar dados devido a necessidade de pegar o id do usuario logado, caso não houvesse essa necessidade poderia usar o metodo create. poreḿ deve existir outras maneiras
         $user = Auth::user()->id;
         $release = new Release;
         $release->release_type = $request->release_type;
         $release->person = $request->person;
         $release->description = $request->description;
-        // $release->amount = str_replace(['.',','],['','.'],$request->amount);
         $release->amount = $request->amount;
         $release->due_date = $request->due_date;
         $release->user_id = $user;
@@ -44,28 +35,17 @@ class ReleaseController extends Controller
         ->with('messageRegister', 'Lancamento cadastrado com sucesso!');
     }
 
-    public function list(Release $release)//passando o Request por causa do formulario de busca que foi implementado na list de releases
+    public function list(Release $release)//passando o objeto, mas poderia ser de outra forma. usando esse recurso pq vou precisar filtar 
     {
         $releases = auth()->user()->releases()->paginate($this->totalPage);//filtrando apenas os registro do usuario logado
         return view('releases.list', compact('releases'));
     }
-
-
-    public function filter(Request $request, Release $release)//pegando o objetto do metood list
+    public function filter(Request $request, Release $release)//pegando o objetto do metod list
     {
-        // $dataForm = $request->all();
-        $dataForm = $request->except('_token');
-
+        $dataForm = $request->except('_token');//não exibindo o token sa requisição
         $releases = $release->search($dataForm,$this->totalPage);
-
         return view('releases.list', compact('releases', 'dataForm'));
     }
-
-
-
-
-
-
 
     public function edit($id)
     {
@@ -80,19 +60,15 @@ class ReleaseController extends Controller
     }
     public function editAction(StorageReleaseRequest $request, $id)
     {
-        
         $data = Release::find($id);
-        
         if(!$data)
         {
             return redirect()->route('releases.list');
         }
-            
             $release = $request->all();
             
             $data -> update($release);
             return redirect()->route('releases.list')
-
             ->with('messageEdit', 'Lancamento alterado com sucesso!');
     }
     
@@ -100,10 +76,7 @@ class ReleaseController extends Controller
     {
         Release::find($id)->delete();
         return redirect()->route('releases.list')
-
         ->with('messageDelete', 'Lancamento excluído com sucesso!');
     }
-
-
 
 }

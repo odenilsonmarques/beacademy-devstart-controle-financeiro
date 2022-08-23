@@ -1,5 +1,5 @@
 @extends('layouts.template')
-@section('title','editar')
+@section('title','editar lançamento')
 
 @section('content')
     <div class="container">

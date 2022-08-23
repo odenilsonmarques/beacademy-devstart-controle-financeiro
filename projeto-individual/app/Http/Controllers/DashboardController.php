@@ -9,30 +9,22 @@ use App\Models\User;
 
 class DashboardController extends Controller
 {
-    //
+    //método para buscar e exibir as informações no dashboard
     public function dash()
     {
-
+        $allsReleasesUser = Auth::user()->releases()->count();
         
-        $allRecords = Auth::user()->releases()->count();
-        
-        $allRevenues = Auth::user()->releases()->where('release_type', '=', 'RECEITA')->sum('amount');
+        $allsRevenues = Auth::user()->releases()->where('release_type', '=', 'RECEITA')->sum('amount');
 
-        $allExpenses = Auth::user()->releases()->where('release_type', '=', 'DESPESA')->sum('amount');
+        $allsExpenses = Auth::user()->releases()->where('release_type', '=', 'DESPESA')->sum('amount');
 
-        // $releases = Release::all();
-       
-        // $releases = Release::where('user_id', Auth::id())->get();
         $releases = Release::where('user_id', Auth::id())->paginate(4);
         
-        
-
         return view('dashboard.dashboard',[
-            'allRecords' => $allRecords,
-            'allRevenues' => $allRevenues,
-            'allExpenses' => $allExpenses,
+            'allsReleasesUser' => $allsReleasesUser,
+            'allsRevenues' => $allsRevenues,
+            'allsExpenses' => $allsExpenses,
             'releases' => $releases,
-           
         ]);
     }
 
@@ -40,27 +32,4 @@ class DashboardController extends Controller
     {
         return view('welcome');
     }
-
-    
-    
-
-    // public function record()
-    // {
-    //     $full = DB::table('releases')->get();
-    //     return view('welcome',['full' => $full]);
-    // }
-
-    // public function revenue()
-    // {
-    //     $cost = DB::table('releases')->where('release_type', 'RECEITA');
-    //     return view('welcome',['cost' => $cost]);
-    // }
-    
-
-    // public function expense()
-    // {
-    //     $expenses = DB::table('releases')->where('release_type', 'DESPESA')->get();
-    //     return view('welcome',['expenses' => $expenses]);
-    // }
-
 }

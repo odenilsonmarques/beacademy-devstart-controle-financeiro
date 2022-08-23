@@ -42,11 +42,12 @@ class Release extends Model
     }
 
 
-    //Nesse caso, passou-se o paramentro search, caso seja passado algo no campo de busca é atribuido um  valor a variavel query que recebe o valor de search, caso não é passado null e não mostra nada
+    //Nesse caso, passou-se o paramentro search, caso seja passado algo no campo de busca é atribuido um  valor a variavel query que recebe o valor de search, caso não, não mostra nada
     public function search(Array $search, $totalPage)
     {
         //atribuindo o valor da busca a variavel releases
         $releases = $this->where(function ($query) use ($search) {
+
         if(isset($search['release_type'])){
             $query->where('release_type', $search['release_type']);
         }
@@ -65,26 +66,4 @@ class Release extends Model
         ->paginate($totalPage);
         return $releases;
     }
-
-    // public function search(Array $data, $totalPage)
-    // {
-    //     $historics = $this->where(function ($query) use ($data) {
-    //         if (isset($data['id']))
-    //             $query->where('id', $data['id']);
-
-    //         if (isset($data['date']))
-    //             $query->where('date', $data['date']);
-
-    //         if (isset($data['type']))
-    //             $query->where('type', $data['type']);
-    //     })
-    //     // ->where('user_id', auth()->user()->id)
-    //     ->userAuth()
-    //     ->with(['userSender'])
-    //     ->paginate($totalPage);
-    //     //->toSql();dd($historics);
-
-    //     return $historics;
-    // }
-
 }
