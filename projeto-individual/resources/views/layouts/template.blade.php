@@ -13,7 +13,7 @@
         <nav class="navbar fixed-top navbar-expand-sm navbar-dark" style="background-color:#1A1A40">
             <div class="container">
                 <a class="navbar-brand" href="{{route('home')}}">
-                    <img src="{{asset('assets/img/dollar.png')}}" alt="logo"  width="28" height="28" class="d-inline-block align-text-center mb-2">
+                    <img src="{{asset('assets/img/dollar.png')}}" alt="logo"  width="26" height="26" class="d-inline-block align-text-center mb-2">
                     Financeiro
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -21,10 +21,8 @@
                 </button>
                 <nav class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
                     <ul class="navbar-nav">
-                       
-
-                        @if(Auth::user())
-                             <li class="nav-item">
+                        @if(Auth::user())<!--os campos dento do if irão aparecer caso o usuario esteja logado-->
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{route('home')}}">Início</a>
                             </li>
                             <li class="nav-item">
@@ -34,7 +32,7 @@
                                 <a class="nav-link" href="{{route('releases.list')}}">Lançamentos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('release.create')}}">Novo Lançamento</a>
+                                <a class="nav-link" href="{{route('release.create')}}">Lançar</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -45,7 +43,6 @@
                                     <li><a class="dropdown-item" href="{{route('user.display')}}">Perfil</a></li>
                                 </ul>
                             </li>
-
                             <li class="nav-item">
                                 <form method="POST" action="{{ route('logout') }}">
                                 @csrf
@@ -56,7 +53,7 @@
                                     </x-responsive-nav-link>
                                 </form>
                             </li>
-                        @else
+                        @else<!-- caso o usuario não esteja logado-->
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('login')}}">Entrar</a>
                             </li>
@@ -81,6 +78,5 @@
     </footer>
     <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('assets/js/scriptFormatCoin.js')}}"></script>
-    {{-- <script src="{{asset('assets/js/teste.js')}}"></script> --}}
 </body>
 </html>

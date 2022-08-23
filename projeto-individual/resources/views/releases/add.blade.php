@@ -1,9 +1,8 @@
 @extends('layouts.template')
-@section('title','cadastro')
+@section('title','cadastro de lançamento')
 
 @section('content')
-    <div class="container ">
-        {{-- <h1 class="text-center mt-4">Cadastro de Lançamento</h1> --}}
+    <div class="container">
         <div class="row">
             <div class="col-sm-6 mt-5">
                 @if($errors->any())
@@ -19,12 +18,9 @@
                 @endif
                 <img src="{{asset('assets/img/boy.svg')}}" alt="logo"  width="" height="" class="d-inline-block align-text-center mb-2">
             </div>
-
             <div class="col-sm-6 mt-5">
                 <div class="card">
-                    <div class="card-header">
-                        Cadastro de Lançamento
-                    </div>
+                    <div class="card-header">Cadastro de Lançamento</div>
                     <div class="card-body">
                         <form action="{{route('release.createAction')}}" method="POST">
                             @csrf<!--csrf toquem de segurnça padrao do laravel para envio de requisao-->
@@ -41,7 +37,7 @@
                             <div class="row">
                                 <div class="col-sm-12 mt-3">
                                     <label for="person">Pessoa</label>
-                                    <input type="text" name="person" value="{{old('person')}}" class="form-control"  maxlength="30" placeholder="Digite o Nome">
+                                    <input type="text" name="person" value="{{old('person')}}" class="form-control"  maxlength="30" placeholder="Digite o nome">
                                 </div>
                             </div>
                             <div class="row">

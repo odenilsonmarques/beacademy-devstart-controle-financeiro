@@ -3,17 +3,11 @@ body
     font-family: 'Roboto', sans-serif;
     background-color: none;
 }
-.navbar a, .navbar-brand
-{
-    /* font-size: 30px;
-    margin-top: 20px; */
-
-}
 .navbar a.navbar-brand 
 {
     color:  #6c63ff;
     font-weight: bold;   
-    font-size: 18px;
+    font-size: 21px;
 }
 .navbar a.navbar-brand:hover
 {
