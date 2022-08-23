@@ -57,29 +57,16 @@
                         </thead>
                         <tbody>
                             @foreach($releases as $release)
-                                @if($release->release_type == 'DESPESA')
-                                    <tr class="lineRed">
-                                        <td>{{$release->release_type}}</td>
-                                        <td>{{$release->person}}</td>
-                                        <td>R$ {{number_format($release->amount, 2, ',', '.')}}</td>
-                                        <td>{{date('d/m/Y',strtotime($release->due_date))}}</td>
-                                        <td>
-                                            <a href="{{route('release.edit',[$release->id])}}" class="btn btn-dark btn-sm">Editar</a>
-                                            <a href="{{route('release.destroy', [$release->id])}}" class="btn btn-danger btn-sm">excluir</a>
-                                        </td>
-                                    </tr>
-                                @else
-                                    <tr class="lineDark">
-                                        <td>{{$release->release_type}}</td>
-                                        <td>{{$release->person}}</td>
-                                        <td>R$ {{number_format($release->amount, 2, ',', '.')}}</td>
-                                        <td>{{date('d/m/Y',strtotime($release->due_date))}}</td>
-                                        <td>
-                                            <a href="{{route('release.edit',[$release->id])}}" class="btn btn-dark btn-sm">Editar</a>
-                                            <a href="{{route('release.destroy', [$release->id])}}" class="btn btn-danger btn-sm">excluir</a>
-                                        </td>
-                                    </tr>
-                                @endif
+                                <tr>
+                                    <td>{{$release->release_type}}</td>
+                                    <td>{{$release->person}}</td>
+                                    <td>R$ {{number_format($release->amount, 2, ',', '.')}}</td>
+                                    <td>{{date('d/m/Y',strtotime($release->due_date))}}</td>
+                                    <td>
+                                        <a href="{{route('release.edit',[$release->id])}}" class="btn btn-dark btn-sm">Editar</a>
+                                        <a href="{{route('release.destroy', [$release->id])}}" class="btn btn-danger btn-sm">excluir</a>
+                                    </td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>
