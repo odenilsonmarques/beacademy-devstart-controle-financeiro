@@ -61,16 +61,17 @@ Inicie o servidor
 
  - Php 8
  - Framework laravel v.9
- - Banco de dados Msql
+ - Banco de dados Mysql
  - SGBD Dbeaver
  - Framework bootstrap v.5
  - Html5
  - Css
  - JavaScript
+ - Ferramenta para desenvolvimento Visual studio code
  
 
 
-## Autores
+## Autor
 
 - [@odenilsonmarques](https://www.github.com/odenilsonmarques)
 
